@@ -222,7 +222,7 @@ export default function ProductsFilter({
 
       <div className="w-full hidden lg:block h-[295px]">
         <img
-          src="https://res.cloudinary.com/disgf4yl7/image/upload/v1755329037/kbf31cpkz45velmk5hxe.jpg"
+          src="https://res.cloudinary.com/dyu8kdule/image/upload/v1779337047/download_dge3j0.jpg"
           alt="Quảng cáo"
           className="w-full h-full object-contain"
         />

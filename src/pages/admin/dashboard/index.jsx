@@ -438,59 +438,57 @@ function Dashboard() {
 
       <div className="container-fluid">
         {promoImpact && (
-          <div className="row g-3 mt-3 mb-5">
-            <div className="col-md-3">
-              <PromoStatCard
-                title="Tỉ lệ dùng khuyến mãi"
-                value={`${redemptionRateSafe.toFixed(1)}%`}
-                percentage={
-                  promoImpact.totalCompleted === 0
-                    ? 0
-                    : ((promoImpact.ordersWithPromo - promoImpact.ordersWithoutPromo) / promoImpact.totalCompleted) * 100
-                }
-                isUp={promoImpact.ordersWithPromo >= promoImpact.ordersWithoutPromo}
-                pathColor="#0ea5e9"
-              />
-            </div>
-            <div className="col-md-3">
-              <PromoStatCard
-                title="Tổng giảm giá đã áp dụng"
-                value={formatVND(promoImpact.totalDiscount)}
-                percentage={
-                  (promoImpact.totalDiscount / (promoImpact.revenueWithPromo + promoImpact.totalDiscount)) * 100
-                }
-                isUp={true}
-                pathColor="#10b981"
-              />
-            </div>
-            <div className="col-md-3">
-              <PromoStatCard
-                title="AOV có khuyến mãi"
-                value={formatVND(promoImpact.AOVWithPromo)}
-                percentage={
-                  promoImpact.AOVWithoutPromo === 0
-                    ? 0
-                    : ((promoImpact.AOVWithPromo - promoImpact.AOVWithoutPromo) / promoImpact.AOVWithoutPromo) * 100
-                }
-                isUp={promoImpact.AOVWithPromo >= promoImpact.AOVWithoutPromo}
-                pathColor="#f59e0b"
-              />
-            </div>
-            <div className="col-md-3">
-              <PromoStatCard
-                title="AOV không khuyến mãi"
-                value={formatVND(promoImpact.AOVWithoutPromo)}
-                percentage={
-                  promoImpact.AOVWithPromo === 0
-                    ? 0
-                    : ((promoImpact.AOVWithoutPromo - promoImpact.AOVWithPromo) / promoImpact.AOVWithPromo) * 100
-                }
-                isUp={promoImpact.AOVWithoutPromo >= promoImpact.AOVWithPromo}
-                pathColor="#ef4444"
-              />
-            </div>
-          </div>
-        )}
+  <div className="row g-3 mt-3 mb-5">
+    <div className="col-md-3">
+      <PromoStatCard
+        title="Tỉ lệ dùng khuyến mãi"
+        value={`${redemptionRateSafe.toFixed(1)}%`}
+        percentage={
+          promoImpact.totalCompleted === 0
+            ? 0
+            : ((promoImpact.ordersWithPromo - promoImpact.ordersWithoutPromo) / promoImpact.totalCompleted) * 100
+        }
+        pathColor="#0ea5e9"
+      />
+    </div>
+    <div className="col-md-3">
+      <PromoStatCard
+        title="Tổng giảm giá đã áp dụng"
+        value={formatVND(promoImpact.totalDiscount)}
+        percentage={
+          (promoImpact.revenueWithPromo + promoImpact.totalDiscount) === 0
+            ? 0
+            : (promoImpact.totalDiscount / (promoImpact.revenueWithPromo + promoImpact.totalDiscount)) * 100
+        }
+        pathColor="#10b981"
+      />
+    </div>
+    <div className="col-md-3">
+      <PromoStatCard
+        title="Doanh thu có khuyến mãi"
+        value={formatVND(promoImpact.revenueWithPromo)}
+        percentage={
+          promoImpact.revenueWithoutPromo === 0
+            ? 0
+            : (promoImpact.revenueWithPromo / (promoImpact.revenueWithPromo + promoImpact.revenueWithoutPromo)) * 100
+        }
+        pathColor="#f59e0b"
+      />
+    </div>
+    <div className="col-md-3">
+      <PromoStatCard
+        title="Doanh thu không có khuyến mãi"
+        value={formatVND(promoImpact.revenueWithoutPromo)} 
+        percentage={
+          (promoImpact.revenueWithPromo + promoImpact.revenueWithoutPromo) === 0
+            ? 0
+            : (promoImpact.revenueWithoutPromo / (promoImpact.revenueWithPromo + promoImpact.revenueWithoutPromo)) * 100
+        }
+        pathColor="#ef4444"
+      />
+    </div>
+  </div>
+)}
 
         <div className="row">
           <div className="col-lg-8 d-flex align-items-stretch">

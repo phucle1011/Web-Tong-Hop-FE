@@ -24,8 +24,8 @@ export default function HomeThree() {
   const [productDiscounted, setProductTopDiscounted] = useState([]);
   const [topBrands, setTopBrands] = useState([]);
   const [flashSaleDate, setFlashSaleDate] = useState(null);
-const [flashSaleNotification, setFlashSaleNotification] = useState(null);
-const [flashSales, setFlashSales] = useState([]);
+  const [flashSaleNotification, setFlashSaleNotification] = useState(null);
+  const [flashSales, setFlashSales] = useState([]);
 
 
   const [loading, setLoading] = useState(true);
@@ -33,35 +33,35 @@ const [flashSales, setFlashSales] = useState([]);
   // Tạo danh sách thương hiệu từ products
 
 
-useEffect(() => {
-  const fetchData = async () => {
-    setLoading(true);
-    try {
-      const [newRes, topSoldRes, topDiscounted, topBrandsRes] = await Promise.all([
-        axios.get(`${Constants.DOMAIN_API}/products/getallnew`),
-        axios.get(`${Constants.DOMAIN_API}/top-sold-products`),
-        axios.get(`${Constants.DOMAIN_API}/top-discounted-products`),
-        axios.get(`${Constants.DOMAIN_API}/brands/top`),
-      ]);
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const [newRes, topSoldRes, topDiscounted, topBrandsRes] = await Promise.all([
+          axios.get(`${Constants.DOMAIN_API}/products/getallnew`),
+          axios.get(`${Constants.DOMAIN_API}/top-sold-products`),
+          axios.get(`${Constants.DOMAIN_API}/top-discounted-products`),
+          axios.get(`${Constants.DOMAIN_API}/brands/top`),
+        ]);
 
-      setProductnew(newRes.data.data || []);
-      setProductTopsold(topSoldRes.data || []);
-      setProductTopDiscounted(topDiscounted.data || []);
-      setTopBrands(topBrandsRes.data.data || []);
+        setProductnew(newRes.data.data || []);
+        setProductTopsold(topSoldRes.data || []);
+        setProductTopDiscounted(topDiscounted.data || []);
+        setTopBrands(topBrandsRes.data.data || []);
 
-      const flashSaleRes = await axios.get(`${Constants.DOMAIN_API}/client/flashSale`);
-      const flashSalesData = flashSaleRes.data?.data || [];
-      setFlashSales(flashSalesData); // ✅ gán mảng đầy đủ
+        const flashSaleRes = await axios.get(`${Constants.DOMAIN_API}/client/flashSale`);
+        const flashSalesData = flashSaleRes.data?.data || [];
+        setFlashSales(flashSalesData); // ✅ gán mảng đầy đủ
 
-    } catch (error) {
-      console.error("Lỗi khi gọi API:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+      } catch (error) {
+        console.error("Lỗi khi gọi API:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  fetchData();
-}, []);
+    fetchData();
+  }, []);
 
 
 
@@ -79,7 +79,7 @@ useEffect(() => {
           brands={topBrands} // 👈 truyền data brand vào props
         />
 
-                <CampaignCountDown flashSales={flashSales} className="mb-[60px]" />
+        <CampaignCountDown flashSales={flashSales} className="mb-[60px]" />
 
 
         <SectionStyleThree
@@ -91,12 +91,13 @@ useEffect(() => {
           startLength={0}
           endLength={productNew.length}
         />
-        <ProductsAds
+        {/* <ProductsAds
           ads={[
-            `https://res.cloudinary.com/disgf4yl7/image/upload/v1752939868/mquyniqauymcrkktt6wq.jpg`,
+            `https://res.cloudinary.com/dyu8kdule/image/upload/v1779346111/images_5_y8qfyz.jpg`,
           ]}
+          sectionHeight="sm:h-[600px] h-full"
           className="products-ads-section mb-[60px]"
-        />
+        /> */}
 
         <SectionStyleOneHmThree
           type={3}
@@ -119,27 +120,30 @@ useEffect(() => {
           />
         </ViewMoreTitle> */}
 
-        <ProductsAds
+        {/* <ProductsAds
           ads={[
             `https://res.cloudinary.com/disgf4yl7/image/upload/v1752939639/aznurov8sarxfem0ojzx.jpg`,
             `https://res.cloudinary.com/disgf4yl7/image/upload/v1752939816/zunyjqffvb2s8lcwc9tp.jpg`,
           ]}
           sectionHeight="sm:h-[295px] h-full"
           className="products-ads-section mb-[60px]"
-        />
-        <SectionStyleOneHmThree
-          type={3}
-          // categoryBackground={`${process.env.REACT_APP_PUBLIC_URL}/assets/images/section-category-2.jpg`}
-          products={productDiscounted}
-          brands={brands}
-          categoryTitle="Electronics"
-          sectionTitle="SẢN PHẨM GIẢM GIÁ"
-          seeMoreUrl="/all-products"
-          className="category-products mb-[60px]"
-        />
-
-
-
+        /> */}
+        {productDiscounted.length > 0 ? (
+          <SectionStyleOneHmThree
+            type={3}
+            products={productDiscounted}
+            brands={brands}
+            categoryTitle="Electronics"
+            sectionTitle="SẢN PHẨM GIẢM GIÁ"
+            seeMoreUrl="/all-products"
+            className="category-products mb-[60px]"
+          />
+        ) : (
+          <div className="mb-[60px] text-center py-10">
+            <h2 className="text-xl font-bold mb-2">SẢN PHẨM GIẢM GIÁ</h2>
+            <p className="text-red-500">Hiện chưa có sản phẩm giảm giá nào.</p>
+          </div>
+        )}
 
         {/* <SectionStyleFour
           products={productSold} 

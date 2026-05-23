@@ -595,7 +595,7 @@ initialAuctionRef.current = Number(data.is_auction_only) || 0;
     const locked = initialAuctionRef.current === 1; // khóa nếu dữ liệu ban đầu là 1
     return (
       <>
-        <input
+        {/* <input
           className={`form-check-input ${locked ? 'opacity-60 cursor-not-allowed' : ''}`}
           type="checkbox"
           id="auctionSwitch"
@@ -612,15 +612,15 @@ initialAuctionRef.current = Number(data.is_auction_only) || 0;
             }));
             setErrors((prev) => ({ ...prev, stock: undefined }));
           }}
-        />
+        /> */}
 
-        <label className="form-check-label ms-2" htmlFor="auctionSwitch">
+        {/* <label className="form-check-label ms-2" htmlFor="auctionSwitch">
           {locked
             ? "Biến thể đấu giá (không thể thay đổi)"
             : Number(formData.is_auction_only) === 1
               ? "Biến thể đấu giá (kho = 1)"
               : "Đặt là biến thể đấu giá"}
-        </label>
+        </label> */}
       </>
     );
   })()}

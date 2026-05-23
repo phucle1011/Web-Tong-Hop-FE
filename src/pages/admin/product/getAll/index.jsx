@@ -287,7 +287,7 @@ const fetchProducts = async (page, search = "") => {
           {/* Tiêu đề và lọc theo trạng thái */}
           <div className="flex flex-wrap items-center gap-4">
             <h2 className="text-xl font-semibold">Danh sách sản phẩm</h2>
-            {/* <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2">
               {[
                 
                   {
@@ -304,13 +304,13 @@ const fetchProducts = async (page, search = "") => {
                     textColor: "text-yellow-800",
                     count: draftCount,
                   },
-                  {
-                    key: "auction",
-                    label: "Đấu giá",
-                    color: "bg-purple-300",
-                    textColor: "text-purple-800",
-                    count: auctionCount, // bạn có thể thêm đếm nếu muốn
-                  },
+                  // {
+                  //   key: "auction",
+                  //   // label: "Đấu giá",
+                  //   color: "bg-purple-300",
+                  //   textColor: "text-purple-800",
+                  //   count: auctionCount, // bạn có thể thêm đếm nếu muốn
+                  // },
                 
               ].map(({ key, label, color, textColor, count }) => (
                 <button
@@ -333,7 +333,7 @@ const fetchProducts = async (page, search = "") => {
                   </span>
                 </button>
               ))}
-            </div> */}
+            </div>
           </div>
 
           {/* Nhóm nút */}
@@ -345,14 +345,14 @@ const fetchProducts = async (page, search = "") => {
               + Thêm sản phẩm
             </Link>
 
-            {/* <Link
+            <Link
               to="/admin/attribute/getall"
               className="bg-indigo-500 text-white py-2 px-3 rounded hover:bg-indigo-600 transition flex items-center"
               title="Danh sách thuộc tính"
             >
               <i className="fa-solid fa-list mr-1"></i>
               <span>Danh sách thuộc tính</span>
-            </Link> */}
+            </Link>
           </div>
         </div>
 

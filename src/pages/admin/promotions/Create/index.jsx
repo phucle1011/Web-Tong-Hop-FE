@@ -490,7 +490,7 @@ function PromotionCreate() {
             </div>
           </div>
         </div>
-        <div className="w-full col-span-full relative z-10">
+        {/* <div className="w-full col-span-full relative z-10">
 
           {applicableTo === "order" && (
             <div>
@@ -540,7 +540,7 @@ function PromotionCreate() {
               />
             </div>
           )}
-        </div>
+        </div> */}
 
         <div className="md:col-span-2 grid grid-cols-1 gap-6">
           <label className="block mb-1 font-medium">Mô tả</label>

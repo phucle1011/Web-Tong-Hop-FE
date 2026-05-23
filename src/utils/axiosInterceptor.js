@@ -2,7 +2,16 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-let isToastShown = false; // Biến flag để kiểm soát toast
+let isToastShown = false;
+
+// Các URL không cần redirect về login khi lỗi 401
+const AUTH_URLS = [
+  "/auth/reset-password",
+  "/auth/verify-reset-otp",
+  "/auth/update-password",
+  "/auth/login",
+  "/auth/register",
+];
 
 const setupAxiosInterceptors = (navigate) => {
   axios.interceptors.request.use((config) => {
@@ -18,22 +27,25 @@ const setupAxiosInterceptors = (navigate) => {
     (error) => {
       const status = error?.response?.status;
       const message = error?.response?.data?.message;
+      const requestUrl = error?.config?.url || "";
+        console.log("Interceptor:", { status, message, requestUrl });
 
-      if (status === 401 && message?.includes("jwt expired")) {
+      // Bỏ qua redirect nếu đang gọi các API auth
+      const isAuthUrl = AUTH_URLS.some((url) => requestUrl.includes(url));
+
+      if (status === 401 && message?.includes("jwt expired") && !isAuthUrl) {
         if (!isToastShown) {
           localStorage.removeItem("token");
           toast.info("Phiên đăng nhập đã hết hạn.");
           isToastShown = true;
         }
 
-        // Phát ra sự kiện global
         const event = new Event("tokenExpired");
         window.dispatchEvent(event);
 
-        // Dùng setTimeout để reset lại trạng thái sau khi toast ẩn đi
         setTimeout(() => {
           isToastShown = false;
-        }, 3000); // Thời gian tương ứng với thời gian toast tồn tại
+        }, 3000);
 
         navigate("/login", { replace: true });
       }

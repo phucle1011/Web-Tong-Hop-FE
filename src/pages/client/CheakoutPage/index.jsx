@@ -938,23 +938,6 @@ export default function CheckoutPage() {
       const savedVoucher = location.state?.selectedVoucher;
 
       const payload = {
-        // products: checkoutItems.map(item => ({
-        //   id: item.id,
-        //   user_id: item.user_id,
-        //   product_variant_id: item.product_variant_id,
-        //   quantity: item.quantity,
-        //   variant: {
-        //     id: item.product_variant_id,
-        //     sku: item.variant.sku || `SKU-${item.product_variant_id}`,
-        //     price: parseFloat(item.variant.promotion?.discounted_price || item.variant.price || 0),
-        //     original_price: parseFloat(item.variant.price || 0),
-        //     product: {
-        //       name: item.product?.name || "Không tên"
-        //     },
-        //     images: item.variant.images || [],
-        //     attributeValues: item.variant.attributeValues || []
-        //   }
-        // })),
 
         products: checkoutItems.map(item => {
           const info = getAuctionInfo(item.variant, user.id, item.created_at);
@@ -1530,7 +1513,7 @@ export default function CheckoutPage() {
                       </div>
                     )}
                     <div className="flex items-start justify-between gap-4">
-                      <label className="flex items-center cursor-pointer">
+                      {/* <label className="flex items-center cursor-pointer">
                         <div className="relative">
                           <input
                             type="checkbox"
@@ -1542,7 +1525,7 @@ export default function CheckoutPage() {
                           <div className={`absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow transition-transform duration-300 transform ${enabled ? 'translate-x-4' : ''}`}></div>
                         </div>
                         <span className="ml-3">Ví tiền</span>
-                      </label>
+                      </label> */}
 
                       {enabled && balance !== null && (
                         <div className="text-right text-sm space-y-1">
@@ -1575,7 +1558,7 @@ export default function CheckoutPage() {
                           Vì đây là sản phẩm đấu giá nên chỉ hỗ trợ thanh toán MoMo hoặc VNPay.
                         </div>
                       )}
-                      <li>
+                      {/* <li>
                         <div className="flex space-x-2.5 items-center mb-5">
                           <div className="input-radio">
                             <input
@@ -1589,8 +1572,8 @@ export default function CheckoutPage() {
                             MoMo
                           </label>
                         </div>
-                      </li>
-                      <li>
+                      </li> */}
+                      {/* <li>
                         <div className="flex space-x-2.5 items-center mb-5">
                           <div className="input-radio">
                             <input
@@ -1603,7 +1586,7 @@ export default function CheckoutPage() {
                             VNPay
                           </label>
                         </div>
-                      </li>
+                      </li> */}
                       {!isAuctionOrder && (
                         <li>
                           <div className="flex space-x-2.5 items-center mb-5">

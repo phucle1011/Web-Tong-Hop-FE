@@ -232,6 +232,7 @@ function BrandList() {
             toast.error(errorMessage);
         } finally {
             setDeletingBrandId(null);
+            setDeletingBrand(null);
         }
     };
 

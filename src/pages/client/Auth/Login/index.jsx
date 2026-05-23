@@ -323,8 +323,7 @@ export default function Login() {
                         </span>
                       </div>
                       <Link
-                        to="#"
-                        onClick={() => setShowForgotPassword(true)}
+                        to="/reset-password"
                         className="text-base text-qyellow"
                       >
                         Quên mật khẩu

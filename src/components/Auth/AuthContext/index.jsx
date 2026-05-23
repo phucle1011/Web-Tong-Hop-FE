@@ -18,11 +18,21 @@ export const isTokenValid = (token) => {
 
 function AuthProviderWrapper({ children }) {
   const navigate = useNavigate();
-  const [token, setToken] = useState(() => localStorage.getItem("token"));
+
+  // Tự xóa token hết hạn ngay khi load
+  const [token, setToken] = useState(() => {
+    const t = localStorage.getItem("token");
+    if (t && !isTokenValid(t)) {
+      localStorage.removeItem("token"); // ← xóa token hết hạn
+      return null;
+    }
+    return t;
+  });
+
   const [user, setUser] = useState(() => {
     try {
-      const token = localStorage.getItem("token");
-      return token && isTokenValid(token) ? jwtDecode(token) : null;
+      const t = localStorage.getItem("token");
+      return t && isTokenValid(t) ? jwtDecode(t) : null;
     } catch {
       return null;
     }
@@ -40,15 +50,18 @@ function AuthProviderWrapper({ children }) {
       setToken(null);
       setUser(null);
       localStorage.removeItem("token");
-      navigate("/", { replace: true });
+      // Chỉ redirect nếu không đang ở trang auth
+      const authPaths = ["/reset-password", "/login", "/signup"];
+      const isAuthPage = authPaths.some(p => window.location.pathname.includes(p));
+      if (!isAuthPage) {
+        navigate("/login", { replace: true }); // ← đổi về /login cho nhất quán
+      }
     };
 
     window.addEventListener("tokenExpired", handleTokenExpired);
-
-    return () => {
-      window.removeEventListener("tokenExpired", handleTokenExpired);
-    };
+    return () => window.removeEventListener("tokenExpired", handleTokenExpired);
   }, [navigate]);
+
   return (
     <AuthContext.Provider value={{ token, user, logout }}>
       {children}

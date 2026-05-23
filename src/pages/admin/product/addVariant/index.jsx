@@ -206,7 +206,7 @@ function AddVariantForm() {
             {errors.stock && <p className="text-red-600 text-sm mt-1">{errors.stock}</p>}
 
             {/* Toggle is_auction_only */}
-            <div className="form-check form-switch mt-2">
+            {/* <div className="form-check form-switch mt-2">
               <input
                 className="form-check-input"
                 type="checkbox"
@@ -221,7 +221,7 @@ function AddVariantForm() {
               <label className="form-check-label ms-2" htmlFor="auctionSwitch">
                 {Number(isAuctionOnly) === 1 ? "Biến thể đấu giá (kho = 1)" : "Đặt làm biến thể đấu giá"}
               </label>
-            </div>
+            </div> */}
           </div>
         </div>
 

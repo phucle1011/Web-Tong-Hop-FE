@@ -10,7 +10,7 @@ function Aside() {
       <div>
         <div className="brand-logo d-flex align-items-center justify-content-between">
           <Link to="/admin" className="text-nowrap logo-img text-center ms-5">
-            <img src="/assets/images/logos/logo.png" width="100" alt="Logo" />
+            <img src="https://res.cloudinary.com/dyu8kdule/image/upload/v1779260296/logo_h62roc.jpg" width="100" alt="Logo" />
           </Link>
           <div className="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i className="ti ti-x fs-8"></i>
@@ -67,12 +67,13 @@ function Aside() {
                   Quản lý sản phẩm khuyến mãi
                 </span>
               </Link>
-            </li> <li className={`sidebar-item ${location.pathname === "/admin/promotionusers/getAll" ? "active" : ""}`}>
+            </li>
+            {/* <li className={`sidebar-item ${location.pathname === "/admin/promotionusers/getAll" ? "active" : ""}`}>
               <Link className="sidebar-link" to="/admin/promotionusers/getAll">
                 <FaTags />
                 <span className="hide-menu text-truncate" style={{ maxWidth: '150px' }}>Quản lý khách hàng đặc biệt</span>
               </Link>
-            </li>
+            </li> */}
 
             <li className="nav-small-cap">
               <span className="hide-menu">Quản lý đơn hàng</span>
@@ -89,7 +90,7 @@ function Aside() {
                 <span className="hide-menu">Quản lý đơn hàng</span>
               </Link>
             </li>
-            <li className={`sidebar-item ${location.pathname === "/admin/washlets/getAll" ? "active" : ""}`}>
+            {/* <li className={`sidebar-item ${location.pathname === "/admin/washlets/getAll" ? "active" : ""}`}>
               <Link className="sidebar-link" to="/admin/washlets/getAll">
                 <FaBox />
                 <span className="hide-menu">Quản lý ví tiền</span>
@@ -98,7 +99,7 @@ function Aside() {
 
             <li className="nav-small-cap">
               <span className="hide-menu">Quản lý đấu giá</span>
-            </li>
+            </li> */}
 
             {/* <li className={`sidebar-item ${location.pathname === "/admin/wishlist/getAll" ? "active" : ""}`}>
               <Link className="sidebar-link d-flex align-items-center" to="/admin/wishlist/getAll" title="Quản lý sản phẩm đấu giá">
@@ -108,12 +109,12 @@ function Aside() {
                 </span>
               </Link>
             </li> */}
-            <li className={`sidebar-item ${location.pathname === "/admin/auctions/getAll" ? "active" : ""}`}>
+            {/* <li className={`sidebar-item ${location.pathname === "/admin/auctions/getAll" ? "active" : ""}`}>
               <Link className="sidebar-link" to="/admin/auctions/getAll">
                 <FaListAlt  />
                 <span className="hide-menu">Quản lý đấu giá</span>
               </Link>
-            </li>
+            </li> */}
 
             <li className="nav-small-cap">
               <span className="hide-menu">Quản lý người dùng</span>
@@ -150,12 +151,12 @@ function Aside() {
                 <span className="hide-menu">Quản lý đánh giá </span>
               </Link>
             </li>
-            <li className={`sidebar-item ${location.pathname === "/admin/notifications/getAll" ? "active" : ""}`}>
+            {/* <li className={`sidebar-item ${location.pathname === "/admin/notifications/getAll" ? "active" : ""}`}>
               <Link className="sidebar-link" to="/admin/notification/getAll">
                 <FaBell />
                 <span className="hide-menu">Quản lý thông báo </span>
               </Link>
-            </li>
+            </li> */}
           </ul>
         </nav>
       </div>

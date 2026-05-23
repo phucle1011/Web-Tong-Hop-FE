@@ -207,27 +207,6 @@ export default function Blogs() {
                   </button>
                 </div>
 
-                {/* Lọc theo ngày (nhấn Tìm mới lọc) */}
-                <div className="mb-6">
-                  <h4 className="text-xs font-bold uppercase text-gray-700 mb-2">
-                    Lọc theo ngày
-                  </h4>
-                  <div className="flex gap-2 items-stretch">
-                    <input
-                      type="date"
-                      value={tempDate}
-                      onChange={(e) => setTempDate(e.target.value)}
-                      className="w-full border px-2 py-[6px] rounded text-sm"
-                    />
-                    <button
-                      className="bg-blue-500 text-white px-3 rounded flex items-center justify-center"
-                      title="Tìm kiếm"
-                      onClick={handleSearchByDate}
-                    >
-                      <FaSearch />
-                    </button>
-                  </div>
-                </div>
               </div>
             </aside>
 

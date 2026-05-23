@@ -17,13 +17,13 @@ export default function BrandSection({ className, sectionTitle, type, brands = [
               key={brand.id}
               onClick={() => handleClick(brand.id)}
             >
-              <div className="w-full h-[130px] bg-white border border-primarygray flex justify-center items-center">
+              {/* <div className="w-full h-[130px] bg-white border border-primarygray flex justify-center items-center">
                 <img
                   src={brand.logo}
                   alt={brand.name}
                   className="max-h-full max-w-full object-contain"
                 />
-              </div>
+              </div> */}
             </div>
           ))}
         </div>

@@ -159,11 +159,10 @@ useEffect(() => {
         {/* Tiêu đề breadcrumb */}
         <div className="title-area mb-[30px]">
           <PageTitle
-            title="Chi tiết tin tức"
+            title=""
             breadcrumb={[
               { name: "trang chủ", path: "/" },
               { name: "tin tức", path: "/blogs" },
-
             ]}
           />
         </div>
@@ -210,26 +209,7 @@ useEffect(() => {
                     <FaChevronRight />
                   </button>
                 </div>
-                <div className="mb-6">
-                  <h4 className="text-xs font-bold uppercase text-gray-700 mb-2">
-                    Lọc theo ngày
-                  </h4>
-                  <div className="flex gap-2">
-                    <input
-                      type="date"
-                      value={tempDate}
-                      onChange={(e) => setTempDate(e.target.value)}
-                      className="w-full border px-2 py-1 rounded text-sm"
-                    />
-                    <button
-                      className="bg-blue-500 text-white px-3 py-1 rounded"
-                      title="Tìm kiếm"
-                      onClick={handleSearchByDate}
-                    >
-                      <FaSearch />
-                    </button>
-                  </div>
-                </div>
+               
               </div>
             </aside>
 
@@ -247,8 +227,6 @@ useEffect(() => {
                   <h3 className="text-center text-base text-gray-600 mt-4 mb-8">
                     {new DOMParser().parseFromString(blog.meta_description.replace(/<[^>]*>?/gm, ""), "text/html").body.textContent}
                   </h3>
-
-
 
                   <article className="mb-10">
                     {/* Ảnh đại diện */}
@@ -340,10 +318,6 @@ useEffect(() => {
                       </div>
                     </div>
                   </section>
-
-
-
-
                 </>
               )}
             </main>
