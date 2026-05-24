@@ -81,7 +81,7 @@ const { state } = useLocation();
   const fetchComments = async () => {
     try {
       setLoading(true);
-      const res = await axios.get(`http://localhost:5000/comment/product/${slug}`);
+      const res = await axios.get(`https://web-tong-hop-be.onrender.com/comment/product/${slug}`);
       const data = res.data.data;
       const parentComments = data.filter((c) => c.parent_id === null);
       const childComments = data.filter((c) => c.parent_id !== null);
@@ -273,7 +273,7 @@ toast.error("Không thể gửi đánh giá do thiếu mã chi tiết đơn hàn
         return;
       }
 
-      await axios.put(`http://localhost:5000/comments/${existingComment.id}`, {
+      await axios.put(`https://web-tong-hop-be.onrender.com/comments/${existingComment.id}`, {
         rating,
         comment_text: message,
         images: imageUrls,
@@ -290,7 +290,7 @@ toast.error("Không thể gửi đánh giá do thiếu mã chi tiết đơn hàn
         order_detail_id: Number(orderDetailId),
         images: imageUrls,
       };
-      await axios.post("http://localhost:5000/comments", payload);
+      await axios.post("https://web-tong-hop-be.onrender.com/comments", payload);
       toast.success("Đánh giá thành công! Cảm ơn bạn đã đánh giá.");
 
     }

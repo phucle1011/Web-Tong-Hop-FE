@@ -43,7 +43,7 @@ export default function ProductsCompare() {
   const [filteredLists, setFilteredLists] = useState(Array(MAX_COMPARE).fill([]));
   const [allAttributes, setAllAttributes] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/products/compare")
+    fetch("https://web-tong-hop-be.onrender.com/products/compare")
       .then((res) => res.json())
       .then((data) => {
         const variantList = [];
