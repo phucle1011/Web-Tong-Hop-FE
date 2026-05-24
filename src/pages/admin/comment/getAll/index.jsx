@@ -25,6 +25,7 @@ function CommentPage() {
   const [unrepliedComments, setUnrepliedComments] = useState([]);
   const [expandedCommentId, setExpandedCommentId] = useState(null);
   const [replyText, setReplyText] = useState("");
+  const [expandedTextId, setExpandedTextId] = useState(null);
 
   useEffect(() => {
     fetchComments();
@@ -185,6 +186,27 @@ function CommentPage() {
     );
   };
 
+  const CommentText = ({ comment }) => {
+  const isExpanded = expandedTextId === comment.id;
+  const isLong = comment.comment_text?.length > 100;
+  const displayText = isExpanded ? comment.comment_text : comment.comment_text?.slice(0, 100);
+
+  return (
+    <div style={{ maxWidth: "300px", whiteSpace: "normal", wordBreak: "break-word" }}>
+      {displayText}
+      {isLong && !isExpanded && "..."}
+      {isLong && (
+        <span
+          onClick={() => setExpandedTextId(isExpanded ? null : comment.id)}
+          className="text-blue-500 cursor-pointer ml-1 text-sm font-medium"
+        >
+          {isExpanded ? " Ẩn bớt" : " Xem thêm"}
+        </span>
+      )}
+    </div>
+  );
+};
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -280,7 +302,7 @@ function CommentPage() {
                           <tr key={comment.id}>
                             <td>{index + 1}</td>
                             <td>{comment.user?.name || 'Ẩn danh'}</td>
-                            <td>{comment.comment_text}</td>
+                            <td><CommentText comment={comment} /></td>
                             <td>{comment.rating}</td>
                             <td>{new Date(comment.created_at).toLocaleDateString()}</td>
                             <td>

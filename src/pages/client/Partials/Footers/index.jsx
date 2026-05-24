@@ -67,7 +67,7 @@ export default function Footer({ type }) {
           </li>
           <li className="flex items-center gap-3">
             <span className="text-orange-400">📞</span>
-            <span className="text-[#9A9A9A] text-[14px]">0274.3746.959 - 0274.3717.885</span>
+            <span className="text-[#9A9A9A] text-[14px]">0356 808 561 - 0938 775 599</span>
           </li>
           <li className="flex items-center gap-3">
             <span className="text-orange-400">✉️</span>
