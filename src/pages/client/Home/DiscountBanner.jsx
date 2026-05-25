@@ -1,14 +1,14 @@
 export default function DiscountBanner({ className, type }) {
   return (
-    // <div
-    //   className={`discount-banner w-full h-[307px] bg-cover flex justify-center items-center ${
-    //     className || ""
-    //   }`}
-    //   style={{
-    //     background: `url(https://res.cloudinary.com/dyu8kdule/image/upload/v1779696455/snapedit_1779696419847_xs0uxe.jpg) no-repeat`,
-    //     backgroundSize: "cover",
-    //   }}
-    // >
+    <div
+      className={`discount-banner w-full h-[307px] bg-cover flex justify-center items-center ${
+        className || ""
+      }`}
+      style={{
+        background: `url(https://res.cloudinary.com/dyu8kdule/image/upload/v1779696455/snapedit_1779696419847_xs0uxe.jpg) no-repeat`,
+        backgroundSize: "cover",
+      }}
+    >
       {type === 3 ? (
         <div className="container-x mx-auto">
           {/* <div className="best-services w-full  flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:justify-between lg:items-center lg:h-[110px] px-10 lg:py-0 py-10">
