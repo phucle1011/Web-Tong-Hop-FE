@@ -61,7 +61,7 @@ export default function Banner({ className }) {
                 <div
                   className="w-full h-full relative"
                   style={{
-                    backgroundImage: `url(https://res.cloudinary.com/dyu8kdule/image/upload/v1779261148/banner2_bkg124.jpg)`,
+                    backgroundImage: `url(https://res.cloudinary.com/dyu8kdule/image/upload/v1779696455/snapedit_1779696419847_xs0uxe.jpg)`,
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "100% 100%",
                     backgroundPosition: "center",
@@ -80,7 +80,7 @@ export default function Banner({ className }) {
                 <div
                   className="w-full h-full relative"
                   style={{
-                    backgroundImage: `url(https://res.cloudinary.com/dyu8kdule/image/upload/v1779261148/banner2_bkg124.jpg)`,
+                    backgroundImage: `url(https://res.cloudinary.com/dyu8kdule/image/upload/v1779696455/snapedit_1779696419847_xs0uxe.jpg)`,
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "100% 100%",
                     backgroundPosition: "center",
