@@ -18,7 +18,7 @@ export default function AllProductPage() {
   const [products, setProducts] = useState([]);
   const [categoryFilters, setCategoryFilters] = useState({});
   const [brandFilters, setBrandFilters] = useState({});
-  
+
 
 
 
@@ -50,7 +50,7 @@ export default function AllProductPage() {
   const brandId = location.state?.brandId;
   const categoryId = location.state?.categoryId;
 
-   const searchParams = new URLSearchParams(location.search);
+  const searchParams = new URLSearchParams(location.search);
   const keyword = searchParams.get("keyword") || "";
   const searchBrandIds = searchParams.get("brand_ids") || "";
   const searchAttrVals = searchParams.get("attribute_values") || "";
@@ -207,7 +207,7 @@ export default function AllProductPage() {
           category_id: selectedCategoryIds.join(",") || undefined,
           brand_id: selectedBrandIds.join(",") || undefined,
         };
-        
+
 
         const res = await axios.get(`${Constants.DOMAIN_API}/products`, {
           params,
@@ -347,7 +347,7 @@ export default function AllProductPage() {
   };
 
   return (
-    <Layout>
+    <Layout childrenClasses="pb-[20px]">
       <div className="products-page-wrapper w-full py-10">
         <div className="container-x mx-auto max-w-7xl">
           <BreadcrumbCom />
