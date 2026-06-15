@@ -6,6 +6,11 @@ import "./admin-sidebar-mobile.css";
 function Aside() {
   const location = useLocation();
 
+  const handleCloseSidebar = () => {
+    const aside = document.querySelector(".left-sidebar");
+    if (aside) aside.classList.remove("open");
+  };
+
   return (
     <aside className="left-sidebar">
       <div>
@@ -13,7 +18,8 @@ function Aside() {
           <Link to="/admin" className="text-nowrap logo-img text-center ms-5">
             <img src="https://res.cloudinary.com/dyu8kdule/image/upload/v1779260296/logo_h62roc.jpg" width="100" alt="Logo" />
           </Link>
-          <div className="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+          <div className="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse"
+            onClick={handleCloseSidebar}>
             <i className="ti ti-x fs-8"></i>
           </div>
         </div>
