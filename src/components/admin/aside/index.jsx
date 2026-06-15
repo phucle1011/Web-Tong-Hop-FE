@@ -1,6 +1,7 @@
 import { FaTachometerAlt, FaUser, FaListAlt, FaMoneyBillWave, FaMapMarkerAlt, FaGavel, FaPen, FaPenNib, FaTag, FaPercent, FaCogs, FaTags, FaBoxOpen, FaBox, FaShoppingCart, FaHeart, FaHistory, FaCommentDots, FaBell } from "react-icons/fa";
 import { MdDirectionsBus, MdFeedback } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
+import "./admin-sidebar-mobile.css";
 
 function Aside() {
   const location = useLocation();

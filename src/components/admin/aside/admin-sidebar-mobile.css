@@ -1,0 +1,32 @@
+/* ── Mobile sidebar toggle ── */
+
+/* Mặc định trên mobile: sidebar ẩn bên trái */
+@media (max-width: 1199px) {
+  .left-sidebar {
+    position: fixed !important;
+    top: 0;
+    left: -270px;        /* ẩn sang trái */
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s ease;
+    box-shadow: none;
+  }
+
+  /* Khi bấm hamburger → thêm class "open" → sidebar trượt vào */
+  .left-sidebar.open {
+    left: 0 !important;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Overlay mờ phía sau sidebar khi mở */
+  .left-sidebar.open::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 270px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+  }
+}
