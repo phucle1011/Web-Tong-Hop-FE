@@ -10,7 +10,7 @@ export default function HeaderOne({ className, drawerAction, type = 1 }) {
       <TopBar className="quomodo-shop-top-bar" />
       <Middlebar
         type={type}
-        className="quomodo-shop-middle-bar lg:block hidden"
+        className="quomodo-shop-middle-bar"
       />
       {/* Navbar tự xử lý responsive bên trong:
           - desktop (xl trở lên): hiện navbar ngang đầy đủ
